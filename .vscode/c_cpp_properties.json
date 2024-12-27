@@ -17,7 +17,7 @@
                 "${workspaceFolder}/**",
                 "/opt/ros/humble/include/**",
                 "/home/rescue-robot/light_robot/buaa_rescue_robot/src/**"
-            ],
+            ], // 包含路径
             // 其他设置，例如编译器路径、标准库路径等
         }
     ],
