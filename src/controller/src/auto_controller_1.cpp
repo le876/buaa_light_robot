@@ -408,7 +408,7 @@ private:
   int32_t coarse_delta = 5000;
   int32_t error_threshold = 2;
   int32_t auto_lock = 0;
-  int32_t tension_limit = 2000; 
+  int32_t tension_limit = 1700; 
   int16_t running_flag_1 = 0;
   double elastic_deformation = 6.5e-6;
   // 设定在mode12下的各段的力的设定值

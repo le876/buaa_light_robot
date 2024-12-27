@@ -389,6 +389,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             case Qt::Key_A: // enable, Mode 9
                 slave_msg_1->robomaster_mode = 9; // enable
                 slave_msg_2->robomaster_mode = 9; // enable
+                for (size_t i = 0; i < 12; i++)
+                {
+                    // slave_msg_1-> snake_speed_control_array[i]  = speedControls_robomaster1[i]->value();
+                    slave_msg_1-> snake_position_control_array[i]  = positionControls_robomaster1[i]->value();
+                    // slave_msg_2-> snake_speed_control_array[i]  = speedControls_robomaster2[i]->value();
+                    slave_msg_2-> snake_position_control_array[i]  = positionControls_robomaster2[i]->value();
+                }
                 slave_msg_1->snake_speed_control_array = {10,10,10,10,10,10,10,10,10,10,10,10};
                 slave_msg_2->snake_speed_control_array = {10,10,10,10,10,10,10,10,10,10,10,10};
                 slave_control_topic_publisher_1->publish(*slave_msg_1);  // 发布消息
