@@ -12,8 +12,12 @@ find_package(std_msgs REQUIRED)
 # 找到Eigen库
 find_package(Eigen3 REQUIRED)
 
-
-
+include_directories(
+  include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/omega7_sensor
+  ${EIGEN3_INCLUDE_DIRS}  # 添加Eigen头文件路径
+  /usr/include/eigen3    # 添加系统Eigen路径
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

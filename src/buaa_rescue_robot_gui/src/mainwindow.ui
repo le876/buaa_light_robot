@@ -23,7 +23,7 @@
    <widget class="QPushButton" name="publishButton">
     <property name="geometry">
      <rect>
-      <x>485</x>
+      <x>515</x>
       <y>280</y>
       <width>141</width>
       <height>191</height>
@@ -715,8 +715,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>345</y>
+      <x>365</x>
+      <y>340</y>
       <width>102</width>
       <height>117</height>
      </rect>
@@ -1355,9 +1355,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QTextEdit" name="textEdit_8">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>490</x>
       <y>40</y>
-      <width>141</width>
+      <width>131</width>
       <height>236</height>
      </rect>
     </property>
@@ -1436,7 +1436,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>630</x>
       <y>60</y>
       <width>50</width>
       <height>205</height>

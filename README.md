@@ -41,11 +41,13 @@ sudo apt remove brltty
 ```
 
 ### Serial Devices Rename
+
 ```bash
 sudo gedit /etc/udev/rules.d/99-usb-serial.rules
 ```
+
 ```bash
- KERNEL=="ttyUSB[0-9]*", MODE="0666"
+KERNEL=="ttyUSB[0-9]*", MODE="0666"
 # Set a fixed name for specific serial devices
 
 # Robomaster 1
@@ -62,40 +64,46 @@ SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}==
 ```bash
 sudo gedit /etc/udev/rules.d/99-force-dimension.rules
 ```
+
 ```bash
 # Add permissions
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="1451", ATTRS{idProduct}=="0402", MODE="0666", GROUP="plugdev"
 ```
+
 ```bash
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
-
-
 ## Usage
+
 ### launch the gui
+
 ```bash
 ros2 launch buaa_rescue_robot_msgs control_by_keyboard.launch.py 
 ```
+
 ### keyboard_controller  
+
 Run the keyboard_publisher node:
+
 ```bash
 ros2 run keyboard_controller keyboard_publisher
 ```
 
-
 The communication protocol for the robot system can be found in the link:  
-https://docs.google.com/document/d/15l8EZoLQ8ltLROfFUyf_mJ9b2J9PZ0hl/edit?usp=sharing&ouid=102832733841320281280&rtpof=true&sd=true
+<https://docs.google.com/document/d/15l8EZoLQ8ltLROfFUyf_mJ9b2J9PZ0hl/edit?usp=sharing&ouid=102832733841320281280&rtpof=true&sd=true>
 
 ## Contributing
+
 The current code contributors are Dr. Huang Hao and Xiang Yan.
 
 ## License
+
 This project is licensed under the MIT License.
 
 ### upload test
-upload without password token
 
+upload without password token
 
 new pc test

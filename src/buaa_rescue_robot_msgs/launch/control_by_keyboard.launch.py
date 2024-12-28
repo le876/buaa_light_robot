@@ -17,13 +17,6 @@ def generate_launch_description():
             name='serial_robomaster_1',
             output='screen'
         ),
-        # 启动serial_robomaster_2节点
-        Node(
-            package='serial',
-            executable='serial_robomaster_2',
-            name='serial_robomaster_2',
-            output='screen'
-        ),
         # 启动serial_PullPushSensors_1节点
         Node(
             package='serial',
@@ -50,13 +43,6 @@ def generate_launch_description():
             package='controller',
             executable='auto_controller_1',
             name='auto_controller_1',
-            output='screen'
-        ),
-        # 启动auto_controller_2节点
-        Node(
-            package='controller',
-            executable='auto_controller_2',
-            name='auto_controller_2',
             output='screen'
         ),
         # 启动omega7_sensor节点

@@ -9,6 +9,7 @@
                 "/usr/include/x86_64-linux-gnu/qt5/QtGui",
                 "/usr/include/x86_64-linux-gnu/qt5/QtCore",
                 "/opt/ros/humble/include/**",
+                "/usr/include/eigen3",
                 "/home/rescue-robot/light_robot/buaa_rescue_robot/install/buaa_rescue_robot_msgs/include/**"
             ],
             "defines": [],
