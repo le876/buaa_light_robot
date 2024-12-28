@@ -19,7 +19,6 @@
 #include <QKeyEvent>
 #include <rclcpp/rclcpp.hpp>
 #include <buaa_rescue_robot_msgs/msg/control_message_slave.hpp>
-#include <buaa_rescue_robot_msgs/msg/control_message_slave_gripper.hpp>
 #include <buaa_rescue_robot_msgs/msg/control_message_master.hpp>
 #include <buaa_rescue_robot_msgs/msg/sensors_message_robomaster.hpp>
 #include <buaa_rescue_robot_msgs/msg/sensors_message_master_device_elevator.hpp>
@@ -56,7 +55,6 @@ private:
     Ui::MainWindow *ui;
     std::shared_ptr<rclcpp::Node> node;
     rclcpp::Publisher<buaa_rescue_robot_msgs::msg::ControlMessageSlave>::SharedPtr slave_control_topic_publisher_1;
-    rclcpp::Publisher<buaa_rescue_robot_msgs::msg::ControlMessageSlaveGripper>::SharedPtr gripper_control_topic_publisher_1;
     rclcpp::Publisher<buaa_rescue_robot_msgs::msg::ControlMessageMaster>::SharedPtr master_control_topic_publisher;
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr joint_space_topic_publisher;
 

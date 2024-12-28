@@ -12,8 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     // Initialize publishers
     slave_control_topic_publisher_1 = node->create_publisher<buaa_rescue_robot_msgs::msg::ControlMessageSlave>(
         "slave_control_topic_1", 10);
-    gripper_control_topic_publisher_1 = node->create_publisher<buaa_rescue_robot_msgs::msg::ControlMessageSlaveGripper>(
-        "gripper_control_topic_1", 10);
     master_control_topic_publisher = node->create_publisher<buaa_rescue_robot_msgs::msg::ControlMessageMaster>(
         "master_control_topic", 10);
     joint_space_topic_publisher = node->create_publisher<std_msgs::msg::Float64MultiArray>(
@@ -80,11 +78,20 @@ void MainWindow::on_publishButton_clicked()
 {
     // Create and publish slave control message
     auto slave_msg = buaa_rescue_robot_msgs::msg::ControlMessageSlave();
+
+    // Set snake motor speed control array
     for (size_t i = 0; i < speedControls_robomaster1.size(); ++i)
     {
         slave_msg.snake_speed_control_array[i] = speedControls_robomaster1[i]->value();
+    }
+
+    // Set snake motor position control array
+    for (size_t i = 0; i < positionControls_robomaster1.size(); ++i)
+    {
         slave_msg.snake_position_control_array[i] = positionControls_robomaster1[i]->value();
     }
+
+    // Set robomaster mode
     slave_msg.robomaster_mode = ui->robomaster1_mode->value();
     slave_control_topic_publisher_1->publish(slave_msg);
 
@@ -93,9 +100,8 @@ void MainWindow::on_publishButton_clicked()
     master_control_topic_publisher->publish(master_msg);
 }
 
-void MainWindow::on_transButton_clicked()
+void MainWindow::on_transButton_clicked() // 将关节角度转换为关节空间
 {
-    // Create and publish joint space message
     auto joint_msg = std_msgs::msg::Float64MultiArray();
     for (const auto &control : thetaControls)
     {
