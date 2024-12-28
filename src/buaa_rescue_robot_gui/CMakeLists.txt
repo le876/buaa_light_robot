@@ -4,15 +4,16 @@ project(buaa_rescue_robot_gui)
 # Find required packages
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(buaa_rescue_robot_msgs REQUIRED)
 find_package(OpenCV REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
+find_package(rosidl_runtime_cpp REQUIRED)
 
-
-# Enable Qt MOC
+# Enable Qt auto processing
+set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
 # Wrap UI files
 qt5_wrap_ui(UIC_FILES src/mainwindow.ui)
@@ -24,21 +25,32 @@ add_executable(buaa_rescue_robot_gui_node src/main.cpp src/mainwindow.cpp ${UIC_
 ament_target_dependencies(buaa_rescue_robot_gui_node rclcpp std_msgs buaa_rescue_robot_msgs)
 
 # Link libraries
-target_link_libraries(buaa_rescue_robot_gui_node ${OpenCV_LIBS} Qt5::Widgets)
+target_link_libraries(buaa_rescue_robot_gui_node
+    ${OpenCV_LIBS}
+    Qt5::Core
+    Qt5::Gui
+    Qt5::Widgets
+    rosidl_runtime_cpp::rosidl_runtime_cpp
+)
 
 # Include directories
 target_include_directories(buaa_rescue_robot_gui_node PRIVATE
-  ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
 )
-
 
 # 安装所有可执行文件
 install(TARGETS
-  buaa_rescue_robot_gui_node
-  DESTINATION lib/${PROJECT_NAME})
+    buaa_rescue_robot_gui_node
+    DESTINATION lib/${PROJECT_NAME})
 
 # Debugging: Print UIC_FILES variable
 message("UIC_FILES: ${UIC_FILES}")
 
 # Package setup
 ament_package()
+
+# Include directories
+include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories(${Qt5Core_INCLUDE_DIRS})
+include_directories(${Qt5Gui_INCLUDE_DIRS})
+include_directories(${Qt5Widgets_INCLUDE_DIRS})

@@ -3,22 +3,41 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/usr/include/x86_64-linux-gnu/qt5/**",
+                "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+                "/usr/include/x86_64-linux-gnu/qt5/QtGui",
+                "/usr/include/x86_64-linux-gnu/qt5/QtCore",
+                "/opt/ros/humble/include/**",
+                "/home/rescue-robot/light_robot/buaa_rescue_robot/install/buaa_rescue_robot_msgs/include/**"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
+            "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
             "cppStandard": "gnu++14",
             "intelliSenseMode": "linux-gcc-x64"
         },
         {
-            "name": "ROS",
+            "name": "ROS2",
             "includePath": [
                 "${workspaceFolder}/**",
                 "/opt/ros/humble/include/**",
+                "/opt/ros/humble/include/rclcpp",
+                "/opt/ros/humble/include/std_msgs",
+                "/opt/ros/humble/include/builtin_interfaces",
+                "/opt/ros/humble/include/rosidl_runtime_cpp",
+                "/home/rescue-robot/light_robot/buaa_rescue_robot/install/buaa_rescue_robot_msgs/include/**",
                 "/home/rescue-robot/light_robot/buaa_rescue_robot/src/**"
-            ], // 包含路径
-            // 其他设置，例如编译器路径、标准库路径等
+            ],
+            "defines": [
+                "ROSCONSOLE_BACKEND_LOG4CXX",
+                "RCUTILS_ENABLE_FAULT_INJECTION",
+                "ROS_PACKAGE_NAME=\"buaa_rescue_robot_gui\""
+            ],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
         }
     ],
     "version": 4
